@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Asciidoctor 2.0.21">
+  <meta name="keywords" content="IFIP WG 2.8, Functional Programming">
+  <title>IFIP WG2.8 Meeting 43 Minutes</title>
+  <link rel="stylesheet" href="https://ifip-wg28.github.io/styles/wg28-style.css" type="text/css" />
+  <!-- support for latexmath -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      messageStyle: "none",
+      tex2jax: {
+	inlineMath: [["\\(", "\\)"]],
+	displayMath: [["\\[", "\\]"]],
+	ignoreClass: "nostem|nolatexmath"
+      },
+      asciimath2jax: {
+	delimiters: [["\\$", "\\$"]],
+	ignoreClass: "nostem|noasciimath"
+      },
+      TeX: { equationNumbers: { autoNumber: "none" } }
+    })
+    MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+      MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+	if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+	  data.math.root.display = "block"
+	}
+	return data
+      })
+    })
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</head>
+<body class="article">
+  <div id="layout-top-mask"></div> <!-- to mask scrolled content from below -->
+  <div id="layout-main">
+    <div id="layout-banner-spacer"></div>
+    <div id="layout-banner">
+      <div id="layout-logo">
+        <a href="https://www.ifip.org">
+          <img src="https://ifip-wg28.github.io/images/ifip-logo.png" height="120" alt="IFIP logo" />
+        </a>
+      </div> <!-- layout-logo -->
+      <div id="layout-title">
+	<div id="layout-title-main"><a href="https://ifip-wg28.github.io/index.html">WG2.8 on Functional Programming</a></div>
+	<div id="layout-title-description">York Harbor, ME, USA &ndash; April 12-16, 2025</div>
+      </div> <!-- layout-title -->
+      <div id="access" role="navigation">
+          <div class="menu-header">
+              <ul id="menu-bar" class="menu">
+                  <li id="menu-item-home" class="menu-item">
+                      <a href="https://ifip-wg28.github.io/index.html">Home</a>
+                  </li>
+                  <li id="menu-item-home" class="menu-item">
+                      <a href="https://ifip-wg28.github.io/members.html">Members</a>
+                  </li>
+                  <li id="menu-item-meetings" class="menu-item">
+                      <a href="https://ifip-wg28.github.io/meetings.html">Meetings</a>
+                  </li>
+                  <li id="menu-item-location" class="menu-item">
+                      <a href="index.html">About</a>
+                  </li>
+                  <li id="menu-item-attendees" class="menu-item">
+                      <a href="attendees.html">Attendees</a>
+                  </li>
+                  <li id="menu-item-minutes" class="menu-item current-menu-item">
+                      <a href="minutes.html">Technical Presentations</a>
+                  </li>
+              </ul>
+          </div>
+      </div> <!-- #access -->
+    </div> <!-- layout-banner -->
+    <div class="clearer"></div>
+    <div id="layout-content-box">
+      <div id="content">
+<div class="sect1">
+<h2 id="_technical_presentations">Technical Presentations</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_monday">Monday</h3>
+<div class="openblock unstyled talks">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://users.cs.utah.edu/~mflatt"><strong>Matthew Flatt:</strong></a> <em>Rhombus</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>Rhombus is a new language that is built on Racket. It offers the same
+kind of language extensibility as Racket itself, but using traditional
+(infix) notation, multiple and user-defineable binding spaces for
+context-specific extensible sublanguages, and a framework for
+propagating static information from bindings to uses and from sub
+expressions to enclosing expressions.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/01-flatt-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><strong>Sukyoung Ryu:</strong> <em>Real-World Programming Language Specification</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>Since 2015, the JavaScript language has rapidly evolved with a yearly release cadence and open development process. However, it results in the gap between the language specification written in English and tools, such as parsers, interpreters, and static analyzers, which makes language designers and tool developers suffer from manually filling the gap. ESMeta tools lessen the burden by automatically extracting a mechanized specification from the language specification in prose.</p>
+</div>
+<div class="paragraph">
+<p>We describe our efforts to get the JavaScript and WebAssembly language communities to adopt our mechanized language specification technique and share lessons learned along the way.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/02-ryu-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><strong>Andrew Wagner:</strong> <em>From Linearity to Borrowing</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>Linear type systems are powerful because they can statically ensure
+the correct management of resources like memory, but they can also be
+cumbersome to work with, since even benign uses of a resource require
+that it be explicitly threaded through during computation. Borrowing,
+as popularized by Rust, reduces this burden by allowing one to
+temporarily disable certain resource permissions (e.g., deallocation
+or mutation) in exchange for enabling certain structural permissions
+(e.g., weakening or contraction). In particular, this mechanism spares
+the borrower of a resource from having to explicitly return it to the
+lender but nevertheless ensures that the lender eventually reclaims
+ownership of the resource.</p>
+</div>
+<div class="paragraph">
+<p>In this work, we elucidate the semantics of borrowing by starting with
+a standard linear type system for ensuring safe manual memory
+management in an untyped lambda calculus and gradually augmenting it
+with immutable borrows, lexical lifetimes, reborrowing, and finally
+mutable borrows. We prove semantic type soundness of our Borrow
+Calculus (BoCa) using Borrow Logic (BoLo), a novel domain-specific
+separation logic for borrowing. We establish the soundness of this
+logic using a semantic model that additionally guarantees that our
+calculus is terminating and free of memory leaks. We also show that
+our Borrow Logic is robust enough to establish the semantic safety of
+some syntactically ill-typed programs that temporarily break but
+reestablish invariants.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/03-wagner-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><strong>Jan Hoffmann:</strong> <em>Combining Static and Data-Driven Resource Analysis with Bayesian Learning</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>There are two approaches to automatically deriving symbolic
+worst-case resource bounds for programs: static analysis of the source
+code and data-driven analysis of cost measurements obtained by running
+the program. Static resource analysis is usually sound but incomplete.
+Data-driven analysis can always return a result, but its lack of
+robustness often leads to unsound results.</p>
+</div>
+<div class="paragraph">
+<p>In this talk, I present a hybrid resource bound analysis that tightly
+integrates static analysis and data-driven analysis. The static
+analysis part builds on automatic amortized resource analysis (AARA),
+a type-based resource analysis method that infers resource bounds
+using linear optimization. The data-driven part relies on Bayesian
+modeling and inference techniques that improve upon previous
+data-driven analysis methods by reporting an entire probability
+distribution over likely resource cost bounds. This Hybrid AARA is
+statistically sound under standard assumptions on the runtime cost
+data.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/04-hoffmann-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><a href="https://www.cs.chalmers.se/~koen"><strong>Koen Claessen:</strong></a> <em>QuickChecking Confluence</em></p>
+<div class="paragraph">
+<p><strong>No Abstract</strong></p>
+</div>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/05-claessen-slides.pptx">Slides</a></p>
+</div>
+</li>
+<li>
+<p><strong>Leo Lampropoulos:</strong> <em>Fully Automatic Random Testing of Theorems</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>Property-based testing can quickly uncover errors in complex software,
+but it cannot guarantee their absence; formal verification in proof
+assistants provides strong correctness guarantees, but is still very
+expensive in time and effort. This talk is about QuickChick: a PBT
+framework for proof assistants that aims to bridge this trade-off,
+by offering a push-button test generation method that targets theorems
+with inductively defined pre- and post-conditions, focusing on density
+of inductive types as a key notion that drives the efficiency of the
+approach.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/06-lampropoulos-paper.pdf">Paper</a>, <a href="https://github.com/QuickChick/QuickChick">Link to code</a>, <a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/06-lampropoulos-slides.pptx">Slides</a></p>
+</div>
+</li>
+<li>
+<p><a href="https://www.diku.dk/~henglein"><strong>Fritz Henglein:</strong></a> <em>Querying: Simply, efficiently, generally</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>We present and illustrate two results related to querying of relational data.</p>
+</div>
+<div class="paragraph">
+<p>We show that worst-case optimal joins, also for cyclic queries, are straightforward to program using a few basic programming techniques.  We will illustrate this by a 10-line pure Python program (20 lines including library functions) that produces 'likes-triangles' in seconds where commonly used relational database systems (Postgres, MySQL, SQL Server, SQLite) take a couple of days (i.e. are asymptotically slower) and a best-of-breed research database system can be orders of magnitude slower.</p>
+</div>
+<div class="paragraph">
+<p>Relational calculus is defined as first-order relational logic with syntactic restrictions ("safety") to ensure that their results are finite on finite input relations; e.g. { x | exists y. not R(x,y)} is unsafe.  We show that all first-order definable queries, without any safety restriction, can be executed effectively and, we believe (this is ongoing work), efficiently by executing them on infinite relations that can be represented by tensor terms.</p>
+</div>
+<div class="paragraph">
+<p>We have arrived at these (and other) results via expeditions into abstract algebra&#8201;&#8212;&#8201;mostly K-algebras and Boolean algebras&#8201;&#8212;&#8201;and combining them with programming language and algorithms techniques.  We hint at what else might be gained from this 'mining algebra for power and performance' approach.</p>
+</div>
+<div class="paragraph">
+<p>This is joint work with Changjun Li, Mikkel Kragh Mathiesen and Mads Rehof.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/07-henglein-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><strong>Lennart Augustsson:</strong> <em>A Factoid from Combinator-land</em></p>
+<div class="paragraph">
+<p><strong>No Abstract</strong></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tuesday">Tuesday</h3>
+<div class="openblock unstyled talks">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Ilya Sergey:</strong> <em>Combining Automated and Interactive Verification of Distributed Protocols</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>In this talk, I will present Veil, a framework for automated and interactive verification of transition systems, aimed specifically at conducting machine-assisted proofs about concurrent and distributed algorithms. Veil is implemented on top of the Lean proof assistant. It allows one to describe a transition system and its specification in a simple imperative language, producing verification conditions in first-order logic, to be discharged automatically via a range of SMT solvers. In case automated verification fails or if the system’s description requires statements in a higher-order logic, Veil provides an interactive verification mode, by virtue of being embedded in a general-purpose proof assistant. Veil&#8217;s automated verification performance is acceptable for practical verification tasks, while it also allows for seamless automated/interactive verification of system specifications beyond the reach of existing automated provers.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/09-sergey-slides.pdf">Slides</a>, <a href="https://github.com/verse-lab/veil">Link to code</a></p>
+</div>
+</li>
+<li>
+<p><strong>Joshua Gancher:</strong> <em>Verifying Security Protocols with Owl</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>Cryptographic security protocols (e.g., TLS, Signal, and WireGuard) are still, by and large, proven secure via on-paper analyses and manually implemented in low-level programming languages. To give better formal guarantees, the Owl language presents a different approach where one first type checks a high-level specification of the protocol for security,  and then uses translation validation to obtain a certified, high-performance implementation. In this talk, I present my work on Owl, including the subtleties that arise when mixing cryptographic proofs with programming language theory.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/10-gancher-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><strong>KC Sivaramakrishnan:</strong> <em>Automatically Verifying Replication-aware Linearizability</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>Replicated Data Types (RDTs) have emerged as a principled approach for developing replicated implementations of basic data structures such as counter, flag, set, map, etc. While the correctness of RDTs is generally specified using the notion of strong eventual consistency&#8212;&#8203;which guarantees that replicas that have received the same set of updates would converge to the same state&#8212;&#8203;a more expressive specification which relates the converged state to updates received at a replica would be more beneficial to RDT users. Replication-aware linearizability is one such specification, which requires all replicas to always be in a state which can be obtained by linearizing the updates received at the replica. In this talk, I discuss recent work on developing a novel fully automated technique for verifying replication-aware linearizability for Mergeable Replicated Data Types (MRDTs).</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/11-sivaramakrishnan-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><a href="https://simon.peytonjones.org"><strong>Simon Peyton-Jones:</strong></a> <em>Types and functions in Verse</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>This talk describes how types and functions work in Verse.  In particular, I explore the
+consequences of saying that patterns (which describe function domains) are expressions,
+and types (which also describe function domains) are expressions.  It&#8217;s all very much
+work in progress.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/12-peyton-jones-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><a href="https://www.cse.chalmers.se/~rjmh"><strong>John Hughes:</strong></a> <em>Modules for Cardano Smart Contracts</em></p>
+<div class="paragraph">
+<p><strong>No Abstract</strong></p>
+</div>
+</li>
+<li>
+<p><strong>Steven Holtzen:</strong> <em>Scaling probabilistic programming up</em></p>
+<div class="paragraph">
+<p><strong>No Abstract</strong></p>
+</div>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/14-holtzen-slides.pdf">Slides</a>, <a href="https://github.com/camoy/roulette">Link to code</a></p>
+</div>
+</li>
+<li>
+<p><a href="https://web.cecs.pdx.edu/~mpj"><strong>Mark Jones:</strong></a> <em>Index-Oriented Programming</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>Arrays are one of the most fundamental and widely used data structures.  And yet programmers continue to make seemingly basic mistakes using them, leading to significant vulnerabilities, even in mature and high profile software systems.  In this talk, we show how a family of abstract index types can be used to prevent out of bounds array accesses without compromising on either expressiveness or performance.  Our approach draws on experience with the House operating system, the design of the Habit programming language, and more recent work to implement a capability-based microkernel called HaL4.  In the process, we’ll see some (possibly) new ways to leverage foundational ideas about finite sets in a practical systems programming setting.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/15-jones-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><a href="https://raintown.org"><strong>Satnam Singh:</strong></a> <em>A wee demo of Agda + LLMs for proof</em></p>
+<div class="paragraph">
+<p><strong>No Abstract</strong></p>
+</div>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/16-singh-demo.txt">demo</a></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_wednesday">Wednesday</h3>
+<div class="openblock unstyled talks">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://users.cs.northwestern.edu/~robby"><strong>Robby Findler:</strong></a> <em>Esterel in Racket: a proof (well, part of one)</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>Esterel is a programming language with a beautiful semantics thanks to its determinism, even in the presence of threads, mutable state, and thread abortion. The known implementation techniques, however, are not well matched to conventional programming language implementations, as they compile Esterel to circuits, meaning that it is hard to take advantage of existing language implementations and their ecosystems. Matthew Flatt, Manuel Serrano, and Gérard Berry, and I are working on a new semantics for Esterel that models a continuation-based implementation, as well as a proof that the semantics is the same as the constructive semantics from Gérard Berry&#8217;s book, <strong>The Constructive Semantics of Esterel</strong>. The talk is a description of the semantics and the state of the proof. The slides show the semantics and some of the important lemmas.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/17-findler-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><strong>Thomas Bourgeat:</strong> <em>Dataflow Graphs, Semantics and Transformations, for High-Level Synthesis, but not only</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>We will present a framework for describing and transforming dataflow graphs, with a focus targeting the introduction of out-of-order execution for High-Level Synthesis. Uniquely, our graph language allows us to define and formally verify the correctness of graph rewrite rules. From there, we will see how a collection of well-chosen rewrite rules allows us to obtain an optimizing dataflow graph transformation improving performance of the final circuits obtained.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/18-bourgeat-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><strong>Max New:</strong> <em>Intrinsic Verification of Parsers in Dependent Lambek Calculus</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>We present Dependent Lambek Calculus (LambekD), a domain-specific dependent type theory for verified
+parsing and formal grammar theory. In LambekD, linear types are used as a syntax for formal grammars, and
+parsers can be written as linear terms. The linear typing restriction provides a form of intrinsic verification
+that a parser yields only valid parse trees for the input string. We demonstrate the expressivity of this system
+by showing that the combination of inductive linear types and dependency on non-linear data can be used to
+encode commonly used grammar formalisms such as regular and context-free grammars as well as traces of
+various types of automata. Using these encodings, we define parsers for regular expressions using deterministic
+automata, as well as examples of verified parsers of context-free grammars.
+We present a denotational semantics of our type theory that interprets the linear types as functions from
+strings to sets of abstract parse trees and terms as parse transformers. Based on this denotational semantics,
+we have made a prototype implementation of LambekD using a shallow embedding in the Agda proof assistant.
+All of our examples parsers have been implemented in this prototype implementation.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://arxiv.org/abs/2504.03995">Link to paper</a>, <a href="https://zenodo.org/records/15049780">Link to code</a></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_thursday">Thursday</h3>
+<div class="openblock unstyled talks">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.cs.cornell.edu/~jnfoster"><strong>Nate Foster:</strong></a> <em>Network Enforcement of Session Types</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>Current network verification tools enable reasoning about network-level properties, such as reachability, waypointing, and loop freedom. AbBut existing approaches do not support reasoning about the richer set of properties that arise at the application-level, such as conformance with specified protocols. This talk presented NEST (Network Enforcement of Session Types) a new framework that enforces application-level properties specified using session types. I showed how to synthesize monitors that execute on network switches and drop “illegal” packets as close to the source as is practicable. I developed a formal model of network switches instrumented with monitors, and sketched the soundness of our monitor synthesis algorithms. I also presented an implementation of our approach using programmable switches, and demonstrated its effectiveness on a collection of realistic applications and properties.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/20-foster-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><a href="https://www.cis.upenn.edu/~sweirich"><strong>Stephanie Weirich:</strong></a> <em>A tale of four lambda calculus evaluators</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>This talk presents a new Haskell library for working with de Bruijn indices.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/21-weirich-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><a href="https://cs.uchicago.edu/~jhr"><strong>John Reppy:</strong></a> <em>CFA for SML/NJ</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>In this talk, I present some work on adding higher-order flow analysis to the
+Standard ML of New Jersey system.  Our flow analysis is "sparse" in that it
+does not have to iterate over the program structure.  Instead, we use change
+propagation to compute a flow relation for the program.  We have applied this
+analysis to the problem of safe-for-space closure conversion.  Our new closure
+converter produces faster code on average, although there are slowdowns for
+some examples.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/22-reppy-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><strong>Dave MacQueen:</strong> <em>New Front End and MsML (work in progress)</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>The talk covers three topics:
+1. my methodology for “renewing” sottware, in particular, parts of SML/NJ;
+2. A new personal project to largely rewrite the front end of SML/NJ, but
+   implementing a dialect of successor ML;
+3. My own proposal for a successor ML, called MsML.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/23-macqueen-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><a href="https://www.informatik.uni-freiburg.de/~thiemann"><strong>Peter Thiemann:</strong></a> <em>Borrowing from Session Types</em></p>
+<div class="paragraph">
+<p><strong>No Abstract</strong></p>
+</div>
+</li>
+<li>
+<p><a href="https://www.cis.upenn.edu/~bcpierce"><strong>Benjamin Pierce:</strong></a> <em>Fail Faster!</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>Property-based testing (PBT) relies on generators for random test cases, often constructed using embedded domain specific languages, which provide expressive combinators for building and composing generators.  The effectiveness of PBT depends critically on the speed of these generators. However, careful measurements show that the generator performance  of widely used PBT libraries falls well short of what is possible, due principally to (1) the abstraction overhead of their combinator-heavy style and (2) suboptimal sources of randomness. We characterize, quantify, and address these bottlenecks.</p>
+</div>
+<div class="paragraph">
+<p>To eliminate abstraction overheads, we propose a technique based on multi-stage programming, dubbed Allegro.  We apply this technique to leading generator libraries in OCaml and Scala 3, significantly improving performance. To quantify the performance impact of the randomness source, we carry out a controlled experiment, replacing the randomness in the OCaml PBT library with an optimized version. Both interventions exactly preserve the semantics of generators, enabling precise, pointwise comparisons. Together, these improvements find bugs up to 13x faster.</p>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p><a href="https://www.cis.upenn.edu/~stevez"><strong>Steve Zdancewic:</strong></a> <em>Opportunistic Lambda Calculus</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>This talk will describe some ongoing work to automatically extract a streaming,
+parallel computation from untyped lambda caluculus.  Motivated by "glue
+scripting" workloads, in which computation is bottlenecked by expensive eternal
+calls, we introduce a novel optimistic evaluation strategy.  Inspired by prior
+work on dataflow programming languages, our implementation can improve the
+performance of LLM scripts, achieving speedups of up to 6x while also improving
+latency.</p>
+</div>
+<div class="paragraph">
+<p>This is joint work with Stephen Mell, Konstantinos Kallas, and Osbert Bastani</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/26-zdancewic-slides.pdf">Slides</a></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_friday">Friday</h3>
+<div class="openblock unstyled talks">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://cseweb.ucsd.edu/~npolikarpova"><strong>Nadia Polikarpova:</strong></a> <em>Parsing with Derivatives with E-Graphs</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>The 2011 Functional Pearl by Might et al showed how to extend derivative-based parsing from regexes to context-free grammars. Although their idea is simple and elegant, actually implementing such a parser requires several non-trivial mechanisms (laziness, memoization, fixpoint computations, etc). In this talk I show that <strong>equality saturation</strong> (an existing technique for additive term rewriting over e-graphs) provides all the required mechanisms essentially for free, resulting in a simple and relatively efficient implementation of a derivative parser for arbitrary context-free grammars.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/27-polikarpova-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><a href="https://www.ccs.neu.edu/home/amal"><strong>Amal Ahmed:</strong></a> <em>RichWasm as a Platform for Easily Specifying ABIs</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>RichWasm is a novel richly typed intermediate language designed to serve as a typed compilation target for both typed garbage-collected languages and languages with an ownership-based type system and manually managed memory. It makes use of capability types to ensure fine-grained memory ownership and sharing. In this talk, I&#8217;ll describe work in progress on building a realizability model for RichWasm&#8201;&#8212;&#8201;a semantic model of RichWasm types as sets os WebAssembly code and data that realize the behavior prescribed by those types. Such a model specifies an ABI for RichWasm, since it specifies the data layout, calling conventions, and constraints on ownership and sharing for RichWasm types. A powerful benefit of this model is that it immediately yields a specification of ABIs for high-level typed languages for which we have a type-preserving compiler to RichWasm.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/28-ahmed-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><strong>Stephanie Balzer:</strong> <em>Semantic Logical Relations for Timed Message-Passing Protocols</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>Many of today&#8217;s message-passing systems not only require messages to be exchanged in a certain order but also to happen at a certain time or within a certain time window.  Such correctness conditions are particularly prominent in Internet of Things (IoT) and real-time systems applications, which interface with hardware devices that come with inherent timing constraints.  Verifying compliance of such systems with the intended timed protocol is challenged by their heterogeneity---ruling out any verification method that relies on the system to be implemented in one common language, let alone in a high-level and typed programming language.  To address this challenge, this paper contributes a logical relation to verify that its inhabitants (the applications and hardware devices to be proved correct) comply with the given timed protocol.  To cater to the systems' heterogeneity, the logical relation is entirely semantic, lifting the requirement that its inhabitants are syntactically well-typed.  A semantic approach enables two modes of use of the logical relation for program verification: (i) once-and-for-all verification of an arbitrary well-typed application, given a type system, and (ii) per-instance verification of a specific application / hardware device (a.k.a., foreign code).  To facilitate mode (i), the paper develops a refinement type system for expressing timed message-passing protocols and proves that any well-typed program inhabits the logical relation (fundamental theorem).  A type checker for the refinement type system has been implemented in Rust, using an SMT solver to check satisfiability of timing constraints.  Then, the paper demonstrates both modes of use based on a small case study of a smart home system for monitoring air quality, consisting of a controller application and various environment sensors.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/19-balzer-slides.pdf">Slides</a></p>
+</div>
+</li>
+<li>
+<p><strong>Ron Garcia:</strong> <em>Diagnosing Gradual Type Errors: A Crash Course in Galois Slicing</em></p>
+<details>
+<summary class="title"><strong>Abstract</strong></summary>
+<div class="content">
+<div class="paragraph">
+<p>Gradually typed languages allow programmers to incrementally adopt
+a static typing discipline during development, without having to
+change programming languages.  One key aspect of this transition is
+that type violations may lead to errors at runtime rather than
+type-checking time.  This has led to a long-running investigation of
+how to help programmers narrow down and identify the potential causes
+of these errors, which may be arbitrarily far from the code being
+executed at the time of failure.</p>
+</div>
+<div class="paragraph">
+<p>This talk will discuss our efforts to develop a general
+approach for narrowing down the potential sources of gradual type
+errors using dynamic slicing, in a manner that provides formal
+guarantees and that can be applied to any gradual type discipline
+designed using the Abstracting Gradual Typing Approach.</p>
+</div>
+<div class="paragraph">
+<p>To do so we adapted Galois Slicing&#8212;&#8203;an approach developed by Roly Perera,
+James Cheney, and collaborators&#8212;&#8203;to a small-step, substitution-based, direct style,
+semantics.  The talk uses a toy language to demonstrate the concepts involved
+in systematically designing slicing semantics for a pre-existing small-step semantics.</p>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p><a href="https://wg28.cs.uchicago.edu/43-yorkharbor-2025/30-garcia-slides.pdf">Slides</a>, <a href="https://dl.acm.org/doi/10.1145/3704895">Link to paper</a>, <a href="https://zenodo.org/records/13937290">Link to code</a></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+      </div> <!-- content -->
+    </div> <!-- layout-content-box -->
+    <div id="layout-footer-box">
+      <div id="layout-footer">
+	<div id="layout-footer-text">
+	  <strong>IFIP WG2.8 on Functional Programming</strong><br />
+	  Last updated 2026-01-15 20:31:14 UTC
+	</div> <!-- layout-footer-text -->
+      </div> <!-- layout-footer -->
+    </div> <!-- layout-footer-box -->
+  </div> <!-- layout-main -->
+</body>
+</html>
